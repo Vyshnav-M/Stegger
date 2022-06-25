@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EncodeActivity">
+
+    <Button
+        android:id="@+id/btnEncode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Encode"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.948" />
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="237dp"
+        android:layout_height="319dp"
+        android:layout_marginTop="84dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnPickImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Pick Image"
+        app:layout_constraintBottom_toTopOf="@+id/edtTxtSec"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.83"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btnCam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="take image"
+        app:layout_constraintBottom_toTopOf="@+id/edtTxtSec"
+        app:layout_constraintEnd_toStartOf="@+id/btnPickImg"
+        app:layout_constraintHorizontal_bias="0.447"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/edtTxtSec"
+        android:layout_width="309dp"
+        android:layout_height="80dp"
+        android:ems="10"
+        android:hint="Enter secret message here"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/btnEncode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img"
+        app:layout_constraintVertical_bias="0.654" />
+
+    <TextView
+        android:id="@+id/errMsg"
+        android:text="Enter a valid message"
+        android:textSize="23sp"
+        android:visibility="gone"
+        android:textColor="@color/Red"
+        android:layout_width="312dp"
+        android:layout_height="52dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnEncode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtTxtSec"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

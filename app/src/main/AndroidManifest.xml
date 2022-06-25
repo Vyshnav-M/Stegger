@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:andrname="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.navigation">
+
+    <application
+        android:name="com.example.navigation.G"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/stegger1"
+        android:label="Stegger"
+        android:roundIcon="@drawable/stegger1"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Navigation"
+        tools:targetApi="31">
+        <activity
+            android:name="com.example.navigation.LauncherActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.navigation.MenuActivity"
+            android:exported="false"
+            android:label="Menu"/>
+        <activity
+            android:name="com.example.navigation.EncodeActivity"
+            android:exported="false"
+            android:label="Encode"
+            android:parentActivityName="com.example.navigation.MenuActivity" />
+        <activity
+            android:name="com.example.navigation.EncodeResultActivity"
+            android:exported="false"
+            android:label="Encode successful"
+            android:parentActivityName="com.example.navigation.EncodeActivity" />
+        <activity
+            android:name="com.example.navigation.DecodeActivity"
+            android:exported="false"
+            android:label="Decode"
+            android:parentActivityName="com.example.navigation.MenuActivity" />
+        <activity
+            android:name="com.example.navigation.DecodeResultActivity"
+            android:exported="false"
+            android:label="Decode Successful"
+            android:parentActivityName="com.example.navigation.DecodeActivity" />
+    </application>
+
+</manifest>
