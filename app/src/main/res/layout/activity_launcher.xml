@@ -23,6 +23,7 @@
         android:layout_width="324dp"
         android:layout_height="34dp"
         android:fontFamily="@font/water"
+        android:textColor="@color/blue"
         android:text="Stay Cool…We’ve got u covered"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="20sp"
