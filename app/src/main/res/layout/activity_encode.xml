@@ -19,9 +19,9 @@
 
     <ImageView
         android:id="@+id/img"
-        android:layout_width="237dp"
-        android:layout_height="319dp"
-        android:layout_marginTop="84dp"
+        android:layout_width="235dp"
+        android:layout_height="266dp"
+        android:layout_marginTop="64dp"
         android:src="@mipmap/ic_launcher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,27 +31,23 @@
         android:id="@+id/btnPickImg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="32dp"
         android:text="Pick Image"
-        app:layout_constraintBottom_toTopOf="@+id/edtTxtSec"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.83"
+        app:layout_constraintHorizontal_bias="0.823"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/img" />
 
     <Button
         android:id="@+id/btnCam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="32dp"
         android:text="take image"
-        app:layout_constraintBottom_toTopOf="@+id/edtTxtSec"
         app:layout_constraintEnd_toStartOf="@+id/btnPickImg"
-        app:layout_constraintHorizontal_bias="0.447"
+        app:layout_constraintHorizontal_bias="0.455"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/img" />
 
     <EditText
         android:id="@+id/edtTxtSec"
@@ -64,22 +60,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img"
-        app:layout_constraintVertical_bias="0.654" />
+        app:layout_constraintVertical_bias="0.378" />
 
-    <TextView
-        android:id="@+id/errMsg"
-        android:text="Enter a valid message"
-        android:textSize="23sp"
-        android:visibility="gone"
-        android:textColor="@color/Red"
-        android:layout_width="312dp"
-        android:layout_height="52dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnEncode"
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switch1"
+        android:layout_width="145dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="8dp"
+        android:text="Password"
+        android:textColor="@color/blue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintHorizontal_bias="0.154"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtTxtSec"
-        app:layout_constraintVertical_bias="1.0" />
+        app:passwordToggleEnabled="true" />
+
+    <EditText
+        android:id="@+id/EdtPass"
+        android:layout_width="309dp"
+        android:layout_height="51dp"
+        android:ems="10"
+        android:hint="Enter the password here"
+        android:inputType="textPassword"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch1"
+        app:passwordToggleEnabled="true" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.app.Application;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.view.View;
 
 public class G extends Application {
     public static Drawable imageDrawable;
@@ -12,6 +13,8 @@ public class G extends Application {
     public static String secMsg;
     public static Bitmap debmap;
     public static String msgDecoded = "";
+    public static String encodePassword = "";
+    public static String decodePassword ;
     public static char[] bits;
 
     public static void encode()
@@ -20,6 +23,12 @@ public class G extends Application {
         //enbmap.setPremultiplied(false);
 
         secMsg = secMsg + "#";
+
+        if(encodePassword.length() != 0)
+            secMsg = "Y" + encodePassword + secMsg;
+        else
+            secMsg = "N" + secMsg;
+
         bits = getBinary(secMsg);
 
         int msglen = bits.length;
@@ -119,6 +128,16 @@ public class G extends Application {
                         msgDecoded = msgDecoded + character;
                 }
             }
+        }
+        if(msgDecoded.charAt(0) == 'Y')
+        {
+            decodePassword = msgDecoded.substring(1,9);
+            msgDecoded = msgDecoded.substring(9);
+            DecodeResultActivity.passwordFound = true;
+        }
+        else if(msgDecoded.charAt(0) == 'N'){
+            msgDecoded = msgDecoded.substring(1);
+            DecodeResultActivity.passwordFound = false;
         }
     }
 

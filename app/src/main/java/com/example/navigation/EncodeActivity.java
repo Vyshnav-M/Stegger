@@ -1,6 +1,7 @@
 package com.example.navigation;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import android.app.ProgressDialog;
 import android.content.ContentValues;
@@ -10,10 +11,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 
@@ -21,10 +25,11 @@ public class EncodeActivity extends AppCompatActivity {
 
     Intent intent;
     Button btnEn,btnPick,btnCam;
-    EditText secMsg;
-    TextView errMsg;
+    EditText secMsg,pass;
     ImageView img;
+    SwitchCompat switchPass;
     Uri imageUri;
+    boolean isCheck;
     ContentValues values;
     public static ProgressDialog progressDialog;
 
@@ -38,7 +43,20 @@ public class EncodeActivity extends AppCompatActivity {
         btnPick = findViewById(R.id.btnPickImg);
         img = findViewById(R.id.img);
         secMsg = findViewById(R.id.edtTxtSec);
-        errMsg = findViewById(R.id.errMsg);
+        switchPass = findViewById(R.id.switch1);
+        pass = findViewById(R.id.EdtPass);
+
+        switchPass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    pass.setVisibility(View.VISIBLE);
+                    isCheck = true;
+                } else {
+                    pass.setVisibility(View.INVISIBLE);
+                    isCheck = false;
+                }
+            }
+        });
 
         btnCam.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,9 +85,23 @@ public class EncodeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String secretMsg = secMsg.getText().toString();
-                if(secretMsg.equals(""))
-                    errMsg.setVisibility(View.VISIBLE);
-                else {
+                boolean enc = true;
+                if(secretMsg.equals("")) {
+                    enc = false;
+                    secMsg.setError("Enter a valid message");
+                }
+                else if(isCheck) {
+                    String passWord = pass.getText().toString();
+                    if(TextUtils.isEmpty(passWord) || pass.length() != 8)
+                    {
+                        pass.setError("You must have 8 characters in your password");
+                        enc = false;
+                    }
+                    else{
+                        G.encodePassword = passWord;
+                    }
+                }
+                if(enc) {
                     progressDialog = new ProgressDialog(EncodeActivity.this);
                     progressDialog.setMessage("Please wait"); // Setting Message
                     progressDialog.setTitle("Encoding"); // Setting Title
