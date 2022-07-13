@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class DecodeActivity extends AppCompatActivity {
 
@@ -43,15 +44,19 @@ public class DecodeActivity extends AppCompatActivity {
         btnDecodeSteg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                progressDialog = new ProgressDialog(DecodeActivity.this);
-                progressDialog.setMessage("Please wait"); // Setting Message
-                progressDialog.setTitle("Decoding"); // Setting Title
-                progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
-                progressDialog.show(); // Display Progress Dialog
-                progressDialog.setCancelable(false);
-                G.msgDecoded="";
-                G.decode();
-                openDecodeResultActivity();
+                if(stegImg.getTag().toString().equals("default"))
+                    Toast.makeText(DecodeActivity.this, "Please select an image", Toast.LENGTH_SHORT).show();
+                else {
+                    progressDialog = new ProgressDialog(DecodeActivity.this);
+                    progressDialog.setMessage("Please wait"); // Setting Message
+                    progressDialog.setTitle("Decoding"); // Setting Title
+                    progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER); // Progress Dialog Style Spinner
+                    progressDialog.show(); // Display Progress Dialog
+                    progressDialog.setCancelable(false);
+                    G.msgDecoded = "";
+                    G.decode();
+                    openDecodeResultActivity();
+                }
             }
         });
     }
@@ -76,6 +81,7 @@ public class DecodeActivity extends AppCompatActivity {
                 bitmap = Bitmap.createScaledBitmap(bitmap, 450, 600, true);
                 stegImg.setImageBitmap(bitmap);
                 G.debmap = bitmap;
+                stegImg.setTag("updated");
             } catch (Exception e) {
                 e.printStackTrace();
             }

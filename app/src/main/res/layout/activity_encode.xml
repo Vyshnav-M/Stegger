@@ -22,7 +22,8 @@
         android:layout_width="235dp"
         android:layout_height="266dp"
         android:layout_marginTop="64dp"
-        android:src="@drawable/imgIcon"
+        android:src="@drawable/img_icon"
+        android:tag="default"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class EncodeActivity extends AppCompatActivity {
@@ -86,7 +87,11 @@ public class EncodeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String secretMsg = secMsg.getText().toString();
                 boolean enc = true;
-                if(secretMsg.equals("")) {
+                if(img.getTag().toString().equals("default")) {
+                    Toast.makeText(EncodeActivity.this, "Please select an image", Toast.LENGTH_SHORT).show();
+                    enc = false;
+                }
+                else if(secretMsg.equals("")) {
                     enc = false;
                     secMsg.setError("Enter a valid message");
                 }
@@ -136,6 +141,7 @@ public class EncodeActivity extends AppCompatActivity {
                 bitmap = Bitmap.createScaledBitmap(bitmap, 450, 600, true);
                 img.setImageBitmap(bitmap);
                 G.bmap = bitmap;
+                img.setTag("updated");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -147,6 +153,7 @@ public class EncodeActivity extends AppCompatActivity {
                 thumbnail = Bitmap.createScaledBitmap(thumbnail, 450, 600, true);
                 img.setImageBitmap(thumbnail);
                 G.bmap = thumbnail;
+                img.setTag("updated");
             } catch (Exception e) {
                 e.printStackTrace();
             }
