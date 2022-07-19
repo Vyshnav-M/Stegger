@@ -12,12 +12,24 @@
         <entry key="..\:/Users/vysak/AndroidStudioProjects/Navigation/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/vysak/AndroidStudioProjects/Navigation/app/src/main/res/layout/activity_main2.xml" value="0.2359375" />
         <entry key="..\:/Users/vysak/AndroidStudioProjects/Navigation/app/src/main/res/layout/activity_menu.xml" value="0.25" />
+        <entry key="..\:/Users/vysak/AndroidStudioProjects/Stegger/app/src/main/res/drawable/ic_help.xml" value="0.1995" />
+        <entry key="..\:/Users/vysak/AndroidStudioProjects/Stegger/app/src/main/res/layout/activity_about.xml" value="0.264" />
         <entry key="..\:/Users/vysak/AndroidStudioProjects/Stegger/app/src/main/res/layout/activity_decode.xml" value="0.264" />
         <entry key="..\:/Users/vysak/AndroidStudioProjects/Stegger/app/src/main/res/layout/activity_decode_result.xml" value="0.25" />
         <entry key="..\:/Users/vysak/AndroidStudioProjects/Stegger/app/src/main/res/layout/activity_encode.xml" value="0.264" />
         <entry key="..\:/Users/vysak/AndroidStudioProjects/Stegger/app/src/main/res/layout/activity_encode_result.xml" value="0.25" />
+        <entry key="..\:/Users/vysak/AndroidStudioProjects/Stegger/app/src/main/res/layout/activity_guide.xml" value="0.1" />
         <entry key="..\:/Users/vysak/AndroidStudioProjects/Stegger/app/src/main/res/layout/activity_launcher.xml" value="0.264" />
         <entry key="..\:/Users/vysak/AndroidStudioProjects/Stegger/app/src/main/res/layout/activity_menu.xml" value="0.25" />
+        <entry key="..\:/Users/vysak/AndroidStudioProjects/Stegger/app/src/main/res/layout/activity_recent_projects.xml" value="0.25" />
+        <entry key="..\:/Users/vysak/AndroidStudioProjects/Stegger/app/src/main/res/layout/activity_scrolling.xml" value="0.25" />
+        <entry key="..\:/Users/vysak/AndroidStudioProjects/Stegger/app/src/main/res/layout/content_main1.xml" value="0.25" />
+        <entry key="..\:/Users/vysak/AndroidStudioProjects/Stegger/app/src/main/res/layout/content_scrolling.xml" value="0.25" />
+        <entry key="..\:/Users/vysak/AndroidStudioProjects/Stegger/app/src/main/res/layout/header.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/vysak/AndroidStudioProjects/Stegger/app/src/main/res/layout/list_item.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/vysak/AndroidStudioProjects/Stegger/app/src/main/res/menu/activity_main_drawer.xml" value="0.25" />
+        <entry key="..\:/Users/vysak/AndroidStudioProjects/Stegger/app/src/main/res/menu/main_activity1.xml" value="0.25" />
+        <entry key="..\:/Users/vysak/AndroidStudioProjects/Stegger/app/src/main/res/menu/stegger_menu.xml" value="0.24895833333333334" />
       </map>
     </option>
   </component>

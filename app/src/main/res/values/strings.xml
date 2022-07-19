@@ -1,3 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Stegger</string>
+    <string name="encode">  • Select the ENCODE button from the menu and choose your desired image using PICK IMAGE or TAKE image option. \n
+                            • Once you have selected the image, type in your secret message in the area provided \n
+                            • To improve security there is an optional password feature. You can encode secret message to image with or with out a password. \n
+                            • If the password option is required, you have to enter a password of exactly 8 characters. \n
+                            • After these steps click on ENCODE button to start the encoding. \n
+                            • After encoding you can SAVE before sharing or SHARE directly</string>
+    <string name="warning"> Note : do not directly share the image through whatsapp using the "SHARE" button, instead save the image first then
+                            share the image via whatsapp as an document. Other sharing options works directly.</string>
+    <string name="decode">  • Suppose you received an image from your friend and you want to decode it. First select the image from your device using the "SELECT IMAGE" button.\n
+                            • Once the image has been selected click on the "DECODE" button. \n
+                            • If this image contains a password, the decoder will automatically detect it and you have to enter the correct password inorder to retrieve the secret message.\n
+                            • If no password word is included, you can see the secret message once the decoding is completed</string>
+    <string name="intro">Stegger is an open-source android application created to demonstrate the concept on image steganogrpahy</string>
+    <string name="developers"><u>Developers</u>\n Vyshnav M \n Swetha TP \n Sudheeshna MS \n Ujwel Mukeshkumar\n</string>
+    >
 </resources>

@@ -1,5 +1,6 @@
 package com.example.navigation;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
@@ -12,6 +13,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -25,8 +29,8 @@ import android.widget.Toast;
 public class EncodeActivity extends AppCompatActivity {
 
     Intent intent;
-    Button btnEn,btnPick,btnCam;
-    EditText secMsg,pass;
+    Button btnEn, btnPick, btnCam;
+    EditText secMsg, pass;
     ImageView img;
     SwitchCompat switchPass;
     Uri imageUri;
@@ -39,7 +43,7 @@ public class EncodeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_encode);
 
-        btnEn =  findViewById(R.id.btnEncode);
+        btnEn = findViewById(R.id.btnEncode);
         btnCam = findViewById(R.id.btnCam);
         btnPick = findViewById(R.id.btnPickImg);
         img = findViewById(R.id.img);
@@ -49,7 +53,7 @@ public class EncodeActivity extends AppCompatActivity {
 
         switchPass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     pass.setVisibility(View.VISIBLE);
                     isCheck = true;
                 } else {
@@ -87,26 +91,22 @@ public class EncodeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String secretMsg = secMsg.getText().toString();
                 boolean enc = true;
-                if(img.getTag().toString().equals("default")) {
+                if (img.getTag().toString().equals("default")) {
                     Toast.makeText(EncodeActivity.this, "Please select an image", Toast.LENGTH_SHORT).show();
                     enc = false;
-                }
-                else if(secretMsg.equals("")) {
+                } else if (secretMsg.equals("")) {
                     enc = false;
                     secMsg.setError("Enter a valid message");
-                }
-                else if(isCheck) {
+                } else if (isCheck) {
                     String passWord = pass.getText().toString();
-                    if(TextUtils.isEmpty(passWord) || pass.length() != 8)
-                    {
+                    if (TextUtils.isEmpty(passWord) || pass.length() != 8) {
                         pass.setError("You must have 8 characters in your password");
                         enc = false;
-                    }
-                    else{
+                    } else {
                         G.encodePassword = passWord;
                     }
                 }
-                if(enc) {
+                if (enc) {
                     progressDialog = new ProgressDialog(EncodeActivity.this);
                     progressDialog.setMessage("Please wait"); // Setting Message
                     progressDialog.setTitle("Encoding"); // Setting Title
@@ -121,20 +121,20 @@ public class EncodeActivity extends AppCompatActivity {
         });
     }
 
-    public void encodeResultActivity(){
-        Handler handler=new Handler();
+    public void encodeResultActivity() {
+        Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                intent = new Intent(EncodeActivity.this,EncodeResultActivity.class);
+                intent = new Intent(EncodeActivity.this, EncodeResultActivity.class);
                 startActivity(intent);
             }
-        },2500);
+        }, 2500);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
         super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
-        if(resultCode == RESULT_OK && requestCode == 1) {
+        if (resultCode == RESULT_OK && requestCode == 1) {
             Uri selectedImage = imageReturnedIntent.getData();
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
@@ -146,7 +146,7 @@ public class EncodeActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        if(resultCode == RESULT_OK && requestCode == 0) {
+        if (resultCode == RESULT_OK && requestCode == 0) {
             try {
                 Bitmap thumbnail = MediaStore.Images.Media.getBitmap(
                         getContentResolver(), imageUri);
@@ -160,5 +160,38 @@ public class EncodeActivity extends AppCompatActivity {
         }
         G.imageDrawable = img.getDrawable();
         img.setImageDrawable(G.imageDrawable);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.stegger_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.howtouse:
+                openGuideActivity();
+                break;
+            case R.id.recent:
+                openRecentActivity();
+                break;
+            case R.id.about:
+                openAboutActivity();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    public void openGuideActivity() {
+        intent = new Intent(this, GuideActivity.class);
+        startActivity(intent);
+    }
+    public void openRecentActivity() {
+        intent = new Intent(this, RecentProjectsActivity.class);
+        startActivity(intent);
+    }
+    public void openAboutActivity() {
+        intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.navigation;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -9,6 +10,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -86,5 +90,38 @@ public class DecodeActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.stegger_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.howtouse:
+                openGuideActivity();
+                break;
+            case R.id.recent:
+                openRecentActivity();
+                break;
+            case R.id.about:
+                openAboutActivity();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    public void openGuideActivity() {
+        intent = new Intent(this, GuideActivity.class);
+        startActivity(intent);
+    }
+    public void openRecentActivity() {
+        intent = new Intent(this, RecentProjectsActivity.class);
+        startActivity(intent);
+    }
+    public void openAboutActivity() {
+        intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
     }
 }

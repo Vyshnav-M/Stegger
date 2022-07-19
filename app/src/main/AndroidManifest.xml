@@ -4,8 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.navigation">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
-        android:name="com.example.navigation.G"
+        android:name=".G"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,37 +19,50 @@
         android:theme="@style/Theme.Navigation"
         tools:targetApi="31">
         <activity
-            android:name="com.example.navigation.LauncherActivity"
+            android:name=".RecentProjectsActivity"
+            android:exported="false"
+            android:label="Recent projects" />
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false"
+            android:label="About" />
+        <activity
+            android:name=".GuideActivity"
+            android:exported="false"
+            android:label="Beginners Guide" />
+        <activity
+            android:name=".LauncherActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.navigation.MenuActivity"
+            android:name=".MenuActivity"
             android:exported="false"
-            android:label="Menu"/>
+            android:label="Menu" />
         <activity
-            android:name="com.example.navigation.EncodeActivity"
+            android:name=".EncodeActivity"
             android:exported="false"
             android:label="Encode"
-            android:parentActivityName="com.example.navigation.MenuActivity" />
+            android:parentActivityName=".MenuActivity" />
         <activity
-            android:name="com.example.navigation.EncodeResultActivity"
+            android:name=".EncodeResultActivity"
             android:exported="false"
             android:label="Encode successful"
-            android:parentActivityName="com.example.navigation.EncodeActivity" />
+            android:parentActivityName=".EncodeActivity" />
         <activity
-            android:name="com.example.navigation.DecodeActivity"
+            android:name=".DecodeActivity"
             android:exported="false"
             android:label="Decode"
-            android:parentActivityName="com.example.navigation.MenuActivity" />
+            android:parentActivityName=".MenuActivity" />
         <activity
-            android:name="com.example.navigation.DecodeResultActivity"
+            android:name=".DecodeResultActivity"
             android:exported="false"
             android:label="Decode Successful"
-            android:parentActivityName="com.example.navigation.DecodeActivity" />
+            android:parentActivityName=".DecodeActivity" />
     </application>
 
 </manifest>
